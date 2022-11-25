@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.1.0", 
+    "version": "1.1.0",
     "title": "Manager app backend",
     "description": "Manager Application API",
     "license": "ISC"
@@ -37,8 +37,8 @@
       "description": "API for points(checkList in task)"
     }
   ],
-  "securityDefinitions":{
-    "Bearer":{
+  "securityDefinitions": {
+    "Bearer": {
       "type": "apiKey",
       "name": "Authorization",
       "description": "Enter your token in format *Bearer token*",
@@ -47,7 +47,7 @@
   },
   "consumes": ["application/json"],
   "produces": ["application/json"],
-  "paths":{
+  "paths": {
     "/auth/signin": {
       "post": {
         "tags": ["Auth"],
@@ -59,17 +59,14 @@
             "in": "body",
             "description": "User auth info",
             "schema": {
-              "required": [
-                "login",
-                "password"
-              ],
+              "required": ["login", "password"],
               "properties": {
                 "login": {
                   "type": "string"
-                },       
+                },
                 "password": {
                   "type": "string"
-                }       
+                }
               },
               "example": {
                 "login": "IMask",
@@ -86,7 +83,7 @@
               "properties": {
                 "token": {
                   "type": "string"
-                }      
+                }
               }
             }
           },
@@ -116,21 +113,17 @@
             "in": "body",
             "description": "User that we want to create",
             "schema": {
-              "required": [
-                "name",
-                "login",
-                "password"
-              ],
+              "required": ["name", "login", "password"],
               "properties": {
                 "name": {
                   "type": "string"
                 },
                 "login": {
                   "type": "string"
-                },       
+                },
                 "password": {
                   "type": "string"
-                }       
+                }
               },
               "example": {
                 "name": "Ilon Mask",
@@ -138,7 +131,6 @@
                 "password": "Tesla4ever"
               }
             }
-            
           }
         ],
         "produces": ["application/json"],
@@ -152,7 +144,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           },
           "409": {
@@ -168,7 +160,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Users"],
@@ -182,17 +174,17 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/User"
-              } 
+              }
             }
           }
         }
       }
-    },    
+    },
     "/users/{userId}": {
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Users"],
@@ -226,7 +218,7 @@
       "put": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Users"],
@@ -246,21 +238,17 @@
             "in": "body",
             "description": "New params",
             "schema": {
-              "required": [
-                "name",
-                "login",
-                "password"
-              ],
+              "required": ["name", "login", "password"],
               "properties": {
                 "name": {
                   "type": "string"
                 },
                 "login": {
                   "type": "string"
-                },       
+                },
                 "password": {
                   "type": "string"
-                }       
+                }
               },
               "example": {
                 "name": "Ilon Mask",
@@ -268,7 +256,6 @@
                 "password": "Tesla4ever"
               }
             }
-            
           }
         ],
         "responses": {
@@ -281,7 +268,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           },
           "409": {
@@ -295,7 +282,7 @@
       "delete": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Users"],
@@ -325,7 +312,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Boards"],
@@ -339,7 +326,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Board"
-              } 
+              }
             }
           }
         }
@@ -347,7 +334,7 @@
       "post": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Boards"],
@@ -360,13 +347,12 @@
             "in": "body",
             "description": "New params",
             "schema": {
-              "required": [
-                "title",
-                "owner",
-                "users"
-              ],
+              "required": ["title", "owner", "users"],
               "properties": {
                 "title": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "owner": {
@@ -376,11 +362,10 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  } 
-                }       
+                  }
+                }
               }
             }
-            
           }
         ],
         "responses": {
@@ -393,17 +378,17 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
       }
-    },    
+    },
     "/boards/{boardId}": {
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Boards"],
@@ -437,7 +422,7 @@
       "put": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Boards"],
@@ -457,11 +442,7 @@
             "in": "body",
             "description": "New params",
             "schema": {
-              "required": [
-                "title",
-                "owner",
-                "users"
-              ],
+              "required": ["title", "owner", "users"],
               "properties": {
                 "title": {
                   "type": "string"
@@ -469,15 +450,17 @@
                 "owner": {
                   "type": "string"
                 },
+                "description": {
+                  "type": "string"
+                },
                 "users": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  } 
-                }       
+                  }
+                }
               }
             }
-            
           }
         ],
         "responses": {
@@ -490,7 +473,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -498,7 +481,7 @@
       "delete": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Boards"],
@@ -528,7 +511,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Boards"],
@@ -554,17 +537,17 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Board"
-              } 
+              }
             }
           }
         }
       }
-    }  ,
+    },
     "/boardsSet/{userId}": {
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Boards"],
@@ -587,7 +570,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Board"
-              } 
+              }
             }
           }
         }
@@ -597,7 +580,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Columns"],
@@ -620,7 +603,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Column"
-              } 
+              }
             }
           }
         }
@@ -628,7 +611,7 @@
       "post": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Columns"],
@@ -648,20 +631,16 @@
             "in": "body",
             "description": "New params",
             "schema": {
-              "required": [
-                "title",
-                "order"
-              ],
+              "required": ["title", "order"],
               "properties": {
                 "title": {
                   "type": "string"
                 },
                 "order": {
                   "type": "number"
-                }      
+                }
               }
             }
-            
           }
         ],
         "responses": {
@@ -674,17 +653,17 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
       }
-    },    
+    },
     "/boards/{boardId}/columns/{columnId}": {
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Columns"],
@@ -725,7 +704,7 @@
       "put": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Columns"],
@@ -746,26 +725,22 @@
             "description": "Column ID",
             "required": true,
             "type": "string"
-          },          
+          },
           {
             "name": "new Column params",
             "in": "body",
             "description": "New params",
             "schema": {
-              "required": [
-                "title",
-                "order"
-              ],
+              "required": ["title", "order"],
               "properties": {
                 "title": {
                   "type": "string"
                 },
                 "order": {
                   "type": "number"
-                }       
+                }
               }
             }
-            
           }
         ],
         "responses": {
@@ -778,7 +753,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -786,7 +761,7 @@
       "delete": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Columns"],
@@ -823,7 +798,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Columns"],
@@ -854,7 +829,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Column"
-              } 
+              }
             }
           }
         }
@@ -862,7 +837,7 @@
       "patch": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Columns"],
@@ -877,19 +852,16 @@
             "required": true,
             "type": "array",
             "items": {
-              "required": [
-                "_id",
-                "order"
-              ],
+              "required": ["_id", "order"],
               "properties": {
                 "_id": {
                   "type": "string"
                 },
                 "order": {
                   "type": "number"
-                }      
+                }
               }
-            }            
+            }
           }
         ],
         "responses": {
@@ -905,7 +877,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -913,7 +885,7 @@
       "post": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Columns"],
@@ -928,11 +900,7 @@
             "required": true,
             "type": "array",
             "items": {
-              "required": [
-                "title",
-                "order",
-                "boardId"
-              ],
+              "required": ["title", "order", "boardId"],
               "properties": {
                 "title": {
                   "type": "string"
@@ -941,8 +909,8 @@
                   "type": "number"
                 },
                 "boardId": {
-                  "type": "string" 
-                }       
+                  "type": "string"
+                }
               }
             }
           }
@@ -960,7 +928,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -970,7 +938,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Tasks"],
@@ -1000,7 +968,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Task"
-              } 
+              }
             }
           }
         }
@@ -1008,7 +976,7 @@
       "post": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Tasks"],
@@ -1035,13 +1003,7 @@
             "in": "body",
             "description": "New params",
             "schema": {
-              "required": [
-                "title",
-                "order",
-                "description",
-                "userId",
-                "users"
-              ],
+              "required": ["title", "order", "description", "userId", "users"],
               "properties": {
                 "title": {
                   "type": "string"
@@ -1059,11 +1021,10 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  } 
-                }       
+                  }
+                }
               }
             }
-            
           }
         ],
         "responses": {
@@ -1076,17 +1037,17 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
       }
-    },    
+    },
     "/boards/{boardId}/columns/{columnId}/tasks/{taskId}": {
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Tasks"],
@@ -1134,7 +1095,7 @@
       "put": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Tasks"],
@@ -1196,11 +1157,10 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  } 
-                }       
+                  }
+                }
               }
             }
-            
           }
         ],
         "responses": {
@@ -1213,7 +1173,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -1221,7 +1181,7 @@
       "delete": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Tasks"],
@@ -1265,7 +1225,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Tasks"],
@@ -1302,7 +1262,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Task"
-              } 
+              }
             }
           }
         }
@@ -1310,7 +1270,7 @@
       "patch": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Tasks"],
@@ -1325,23 +1285,19 @@
             "required": true,
             "type": "array",
             "items": {
-              "required": [
-                "_id",
-                "order",
-                "columnId"
-              ],
+              "required": ["_id", "order", "columnId"],
               "properties": {
                 "_id": {
                   "type": "string"
                 },
                 "order": {
                   "type": "number"
-                },      
+                },
                 "columnId": {
                   "type": "string"
-                }      
+                }
               }
-            }            
+            }
           }
         ],
         "responses": {
@@ -1357,7 +1313,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -1367,7 +1323,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Tasks"],
@@ -1390,7 +1346,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Task"
-              } 
+              }
             }
           }
         }
@@ -1400,7 +1356,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Files"],
@@ -1437,7 +1393,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/File"
-              } 
+              }
             }
           }
         }
@@ -1445,7 +1401,7 @@
       "post": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Files"],
@@ -1459,21 +1415,18 @@
             "in": "formData",
             "description": "Board Id",
             "type": "string"
-            
           },
           {
             "name": "taskId",
             "in": "formData",
             "description": "Task Id",
             "type": "string"
-            
           },
           {
             "name": "file",
             "in": "formData",
             "description": "File to upload",
             "type": "file"
-            
           }
         ],
         "responses": {
@@ -1489,13 +1442,13 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           },
           "402": {
             "description": "File already exist",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -1505,7 +1458,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Files"],
@@ -1528,7 +1481,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/File"
-              } 
+              }
             }
           }
         }
@@ -1538,7 +1491,7 @@
       "delete": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Files"],
@@ -1568,7 +1521,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Points"],
@@ -1599,7 +1552,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Point"
-              } 
+              }
             }
           }
         }
@@ -1607,7 +1560,7 @@
       "post": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Points"],
@@ -1620,28 +1573,22 @@
             "in": "body",
             "description": "New params",
             "schema": {
-              "required": [
-                "title",
-                "taskId",
-                "boardId",
-                "done"
-              ],
+              "required": ["title", "taskId", "boardId", "done"],
               "properties": {
                 "title": {
                   "type": "string"
-                },     
+                },
                 "taskId": {
                   "type": "string"
-                },     
+                },
                 "boardId": {
                   "type": "string"
-                },     
+                },
                 "done": {
                   "type": "boolean"
-                }    
+                }
               }
             }
-            
           }
         ],
         "responses": {
@@ -1654,13 +1601,13 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           },
           "402": {
             "description": "File already exist",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -1668,7 +1615,7 @@
       "patch": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Points"],
@@ -1683,19 +1630,16 @@
             "required": true,
             "type": "array",
             "items": {
-              "required": [
-                "_id",
-                "done"
-              ],
+              "required": ["_id", "done"],
               "properties": {
                 "_id": {
                   "type": "string"
                 },
                 "done": {
                   "type": "boolean"
-                }      
+                }
               }
-            }            
+            }
           }
         ],
         "responses": {
@@ -1708,13 +1652,13 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           },
           "402": {
             "description": "File already exist",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -1724,7 +1668,7 @@
       "get": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Points"],
@@ -1747,7 +1691,7 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Point"
-              } 
+              }
             }
           }
         }
@@ -1757,7 +1701,7 @@
       "patch": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Points"],
@@ -1771,26 +1715,22 @@
             "description": "Point ID",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "new params",
             "in": "body",
             "description": "New params",
             "schema": {
-              "required": [
-                "title",
-                "done"
-              ],
+              "required": ["title", "done"],
               "properties": {
                 "title": {
                   "type": "string"
                 },
                 "done": {
                   "type": "boolean"
-                }       
+                }
               }
             }
-            
           }
         ],
         "responses": {
@@ -1803,7 +1743,7 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"              
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         }
@@ -1811,7 +1751,7 @@
       "delete": {
         "security": [
           {
-             "Bearer": []
+            "Bearer": []
           }
         ],
         "tags": ["Points"],
@@ -1838,13 +1778,9 @@
       }
     }
   },
-  "definitions" : {
+  "definitions": {
     "User": {
-      "required": [
-        "_id",
-        "name",
-        "login"
-      ],
+      "required": ["_id", "name", "login"],
       "properties": {
         "_id": {
           "type": "string"
@@ -1854,16 +1790,11 @@
         },
         "login": {
           "type": "string"
-        }      
+        }
       }
     },
     "Board": {
-      "required": [
-        "_id",
-        "title",
-        "owner",
-        "users"
-      ],
+      "required": ["_id", "title", "owner", "users"],
       "properties": {
         "_id": {
           "type": "string"
@@ -1874,30 +1805,26 @@
         "owner": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
         "users": {
           "type": "array",
           "items": {
             "type": "string"
-          } 
-        }      
+          }
+        }
       },
       "example": {
         "_id": "Board id",
         "title": "Board title",
         "owner": "userId of owner",
-        "users": [
-          "userId of invited user #1",
-          "userId of invited user #2"
-        ]
+        "description": "description of board",
+        "users": ["userId of invited user #1", "userId of invited user #2"]
       }
     },
     "Column": {
-      "required": [
-        "_id",
-        "title",
-        "order",
-        "boardId"
-      ],
+      "required": ["_id", "title", "order", "boardId"],
       "properties": {
         "_id": {
           "type": "string"
@@ -1910,7 +1837,7 @@
         },
         "boardId": {
           "type": "string"
-        }      
+        }
       },
       "example": {
         "_id": "Column id",
@@ -1956,8 +1883,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          } 
-        }       
+          }
+        }
       },
       "example": {
         "_id": "Task id",
@@ -1974,13 +1901,7 @@
       }
     },
     "File": {
-      "required": [
-        "_id",
-        "name",
-        "taskId",
-        "boardId",
-        "path"
-      ],
+      "required": ["_id", "name", "taskId", "boardId", "path"],
       "properties": {
         "_id": {
           "type": "string"
@@ -1996,7 +1917,7 @@
         },
         "path": {
           "type": "string"
-        }    
+        }
       },
       "example": {
         "_id": "File id",
@@ -2007,13 +1928,7 @@
       }
     },
     "Point": {
-      "required": [
-        "_id",
-        "title",
-        "taskId",
-        "boardId",
-        "done"
-      ],
+      "required": ["_id", "title", "taskId", "boardId", "done"],
       "properties": {
         "_id": {
           "type": "string"
@@ -2026,10 +1941,10 @@
         },
         "boardId": {
           "type": "string"
-        },   
+        },
         "done": {
           "type": "boolean"
-        }      
+        }
       },
       "example": {
         "_id": "Point id",
@@ -2040,17 +1955,14 @@
       }
     },
     "ErrorResponse": {
-      "required": [
-        "statusCode",
-        "message"
-      ],
+      "required": ["statusCode", "message"],
       "properties": {
         "statusCode": {
           "type": "number"
         },
         "message": {
           "type": "string"
-        }     
+        }
       },
       "example": {
         "statusCode": "4xx",
