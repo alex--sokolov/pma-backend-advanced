@@ -1,10 +1,10 @@
+// @ts-nocheck
+
 import { Response, Request } from 'express';
 import { createError } from '../services/error.service';
 import fs from 'fs';
 import * as fileService from '../services/file.service';
 import * as boardService from '../services/board.service';
-
-
 
 export const getFile = async (req: Request, res: Response) => {
   const path = `files/${req.params.taskId}-${req.params.fileName}`

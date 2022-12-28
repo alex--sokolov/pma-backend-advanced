@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import user from '../models/user';
 import { ObjectId } from 'mongodb';
 import * as taskService from './task.service';

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Response, Request } from 'express';
 import { ObjectId } from 'mongodb';
 import * as taskService from '../services/task.service';
@@ -5,7 +7,6 @@ import * as userService from '../services/user.service';
 import * as boardService from '../services/board.service';
 import { checkBody, createError } from '../services/error.service';
 import { socket } from '../services/server.service';
-
 
 export const updateSetOfTask = async (req: Request, res: Response) => {
   const guid = req.header('Guid') || 'undefined';

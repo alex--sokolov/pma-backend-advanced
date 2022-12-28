@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import multer from 'multer';
 import fs from 'fs';
 import { checkBody } from '../services/error.service';

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Response, Request } from 'express';
 import * as boardService from '../services/board.service';
 

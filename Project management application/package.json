@@ -1,5 +1,5 @@
 {
-  "name": "manager-app",
+  "name": "project-manager-app",
   "version": "1.0.0",
   "engines": {
     "node": "16.x"
@@ -12,7 +12,7 @@
     "build": "tsc",
     "test": "test"
   },
-  "author": "Andrew Troitskiy",
+  "author": "Alex Sokolov",
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -30,7 +30,7 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.6.4"
+    "typescript": "^4.9.4"
   },
   "dependencies": {
     "@types/express-mung": "^0.5.2",

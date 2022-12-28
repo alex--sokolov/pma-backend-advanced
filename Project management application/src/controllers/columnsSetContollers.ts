@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Response, Request } from 'express';
 import * as columnService from '../services/column.service';
 import { checkBody, createError } from '../services/error.service';

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import file from '../models/file';
 import fs from 'fs';
 import { ObjectId } from 'mongodb';

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import board from '../models/board';
 import { ObjectId } from 'mongodb';
 import * as columnService from './column.service';

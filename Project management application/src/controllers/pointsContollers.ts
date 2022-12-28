@@ -1,10 +1,10 @@
+// @ts-nocheck
+
 import { Response, Request } from 'express';
 import * as pointService from '../services/point.service';
 import { checkBody, createError } from '../services/error.service';
 import { socket } from '../services/server.service';
 import * as boardService from '../services/board.service';
-
-
 
 export const getPoints = async (req: Request, res: Response) => {
   const taskId = req.params['taskId'];

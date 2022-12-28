@@ -1,8 +1,8 @@
+// @ts-nocheck
+
 import { Response, Request } from 'express';
 import * as taskService from '../services/task.service';
 import { checkBody, createError } from '../services/error.service';
-
-
 
 export const getTasks = async (req: Request, res: Response) => {
   const boardId = req.baseUrl.split('/')[2];

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import point from '../models/point';
 import { ObjectId } from 'mongodb';
 import { socket } from './server.service';

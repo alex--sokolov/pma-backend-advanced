@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import column from '../models/column';
 import { ObjectId } from 'mongodb';
 import * as taskService from './task.service';
