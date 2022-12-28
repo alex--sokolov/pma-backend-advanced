@@ -5,7 +5,6 @@ import * as serverService from "./services/server.service";
 
 (async () => {
   try {
-    // await mongoose.connect('mongodb+srv://reactFinal:R1NHbBYj7f9wIpNO@cluster0.yzk1drg.mongodb.net/?retryWrites=true&w=majority');
     await mongoose.connect(
       `mongodb+srv://${MONGODB_USER}:${MONGODB_PASS}@cluster0.${MONGODB_CLUSTER}.mongodb.net/?retryWrites=true&w=majority`
     );
