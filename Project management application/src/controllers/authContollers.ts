@@ -5,11 +5,14 @@ import { checkPassword, hashPassword } from "../services/hash.service";
 import { signToken } from "../services/token.service";
 
 export const signIn = async (req: Request, res: Response) => {
+  // @ts-ignore
   const bodyError = checkBody(req.body, ["login", "password"]);
   if (bodyError) {
+    // @ts-ignore
     return res.status(400).send(createError(400, "bad request: " + bodyError));
   }
 
+  // @ts-ignore
   const { login, password } = req.body;
 
   const foundedUser = await userService.findOneUser({ login });
@@ -19,7 +22,13 @@ export const signIn = async (req: Request, res: Response) => {
       foundedUser.password
     );
     if (isCorrectPassword) {
-      return res.send({ token: signToken(foundedUser._id, foundedUser.name) });
+      // @ts-ignore
+      return res.send({
+        token: signToken(
+          foundedUser._id as unknown as string,
+          foundedUser.name
+        ),
+      });
     }
   }
 
